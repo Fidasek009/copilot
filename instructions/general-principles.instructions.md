@@ -35,7 +35,6 @@ Apply these principles to manage dependencies and ensure the system remains easy
 
 ### ✅ Always
 - **Fail Fast:** Validate inputs and state early. Crash loudly rather than corrupting data silently.
-- **Document "Why":** Comments should explain the *intent* and *reasons* behind decisions, not just repeat the code.
 - **Use Meaningful Names:** Names should answer *why* it exists and *what* it does.
 
 ### ⚠️ Ask First
@@ -51,6 +50,32 @@ Apply these principles to manage dependencies and ensure the system remains easy
 ### Functions
 - **Small:** A function should fit on a single screen.
 - **Pure (Preferred):** Avoid side effects where possible. Output should depend only on input.
+
+### Comments
+Comments should explain the **intent** and **reasons** behind decisions—not describe what the code does or how it was changed.
+
+- **Document "Why":** Explain the reasoning, edge cases, or business rules that aren't obvious from the code itself.
+- **Avoid Redundant Comments:** If the code is self-explanatory, no comment is needed.
+- **Never Write Changelog Comments:** Do not describe what was modified or refactored. These comments are useless to future readers who don't know (or care about) the previous implementation.
+
+**Bad:**
+```python
+total = sum(items)  # now uses built-in sum function instead of iterating manually
+```
+
+```javascript
+const total = prices.reduce((a, b) => a + b, 0);  // refactored from for-loop
+```
+
+**Good:**
+```python
+total = sum(items)  # No comment needed—code is self-explanatory
+```
+
+```python
+# Timeout set to 30s to match the upstream API's max response time (see JIRA-1234)
+TIMEOUT_SECONDS = 30
+```
 
 ## Examples
 
