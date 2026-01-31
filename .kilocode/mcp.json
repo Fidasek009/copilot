@@ -1,0 +1,58 @@
+{
+  "mcpServers": {
+    "searxng": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-searxng"
+      ],
+      "env": {
+        "SEARXNG_URL": "https://searx.salonek.org/"
+      },
+      "disabled": false,
+      "autoApprove": [],
+      "alwaysAllow": [
+        "searxng_web_search",
+        "web_url_read"
+      ],
+      "disabledTools": []
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "DEFAULT_MINIMUM_TOKENS": ""
+      },
+      "alwaysAllow": [
+        "resolve-library-id",
+        "query-docs"
+      ],
+      "disabled": false
+    },
+    "github": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "-e",
+        "GITHUB_TOOLSETS",
+        "-e",
+        "GITHUB_READ_ONLY",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "<GITHUB_PERSONAL_ACCESS_TOKEN>",
+        "GITHUB_TOOLSETS": "",
+        "GITHUB_READ_ONLY": ""
+      },
+      "disabled": false,
+      "alwaysAllow": []
+    }
+  }
+}
