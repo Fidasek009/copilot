@@ -38,8 +38,11 @@
       "headers": {
         "Authorization": "Bearer <TOKEN>"
       },
-      "alwaysAllow": [],
-      "disabled": false
+      "alwaysAllow": [
+        "get_me",
+        "pull_request_read"
+      ],
+      "disabled": true
     }
   }
 }
